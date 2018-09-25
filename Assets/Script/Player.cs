@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
+	public float speed;
 	// Use this for initialization
 	void Start ()
 	{
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour {
 		float zAxis = Input.GetAxis("Vertical");
 
 		Vector3 position = transform.position;
-		Vector3 newPosition = new Vector3(position.x + xAxis, position.y, position.z + zAxis);
+		Vector3 newPosition = new Vector3(position.x + xAxis*speed, position.y, position.z + zAxis*speed);
 
 		transform.position = newPosition;
 	}
