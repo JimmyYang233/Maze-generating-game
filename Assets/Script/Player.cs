@@ -142,9 +142,9 @@ public class Player : MonoBehaviour
 	{
 		if (projectileNumber > 0)
 		{
-			GameObject newProjectile = Instantiate(projectile, this.transform.position, this.transform.rotation);
+			GameObject newProjectile = Instantiate(projectile, camera.transform.position, this.transform.rotation);
 			//newProjectile.transform.localPosition = new Vector3(0f,0f,0f);
-			newProjectile.GetComponent<Rigidbody>().velocity = newProjectile.transform.forward*shootSpeed;
+			newProjectile.GetComponent<Rigidbody>().velocity = camera.transform.forward*shootSpeed;
 			newProjectile.GetComponent<Projectile>().mazeGenerator = mazeGenerator;
 			projectileNumber--;
 			projectileText.text = "Projectile number: " + projectileNumber;
