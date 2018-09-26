@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
 	public float speed;
 	public float mouseSensitivity;
+	public MazeGenerator mazeGenerator;
 
 	private GameObject camera;
 	private float xAxisClamp;
@@ -69,5 +70,15 @@ public class Player : MonoBehaviour
 		Vector3 eulerRotation = camera.transform.eulerAngles;
 		eulerRotation.x = value;
 		camera.transform.eulerAngles = eulerRotation;
+	}
+
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("RowTrigger"))
+		{
+			mazeGenerator.generateRow();
+			other.gameObject.SetActive(false);
+		}
 	}
 }
