@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using Random = System.Random;
@@ -84,7 +85,12 @@ public class MazeGenerator : MonoBehaviour
 			}
 			else
 			{
-				currentRow[i + 1].ID = currentRow[i].ID;
+				int idToChange = currentRow[i+1].ID;
+				for(int j = 0;j<8;j++) {
+					if(currentRow[j].ID ==idToChange) {
+						currentRow[j].ID = currentRow[i].ID;
+					}
+				}
 			}
 		}
 	}
