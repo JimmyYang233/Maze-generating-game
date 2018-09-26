@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - RowTrigger
+  - FinalWallTrigger
+  - Wall
+  - Pick Up
+  - Destructable Wall
+  - Message
   layers:
   - Default
   - TransparentFX

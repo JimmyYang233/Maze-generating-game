@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
+using UnityEngine.UI;
 using UnityEngineInternal.Input;
 
 public class Player : MonoBehaviour
 {
 
 	[SerializeField]private float speed;
+	[SerializeField]private float shootSpeed;
 	[SerializeField]private float mouseSensitivity;
 	[SerializeField]private MazeGenerator mazeGenerator;
 	[SerializeField]private AnimationCurve jumpFallOff;
 	[SerializeField]private float jumpMultiplier;
+	[SerializeField] private GameObject projectile;
+	[SerializeField] private Text projectileText;
+	[SerializeField] private Text messageText;
+	[SerializeField] private int projectileNumber;
 	
 	private GameObject camera;
 	private float xAxisClamp;
 	private bool isJumping;
-	
 	private CharacterController charController;
 	// Use this for initialization
 	void Start ()
@@ -25,7 +30,7 @@ public class Player : MonoBehaviour
 		charController = gameObject.GetComponent<CharacterController>();
 		xAxisClamp = 0;
 		isJumping = false;
-
+		projectileText.text = "Projectile number: " + projectileNumber;
 	}
 	
 	// Update is called once per frame
@@ -36,6 +41,11 @@ public class Player : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			jump();
+		}
+
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			shoot();
 		}
 	}
 
@@ -91,6 +101,17 @@ public class Player : MonoBehaviour
 			mazeGenerator.generateRow();
 			other.gameObject.SetActive(false);
 		}
+		else if (other.CompareTag("Pick Up"))
+		{
+			other.gameObject.SetActive(false);
+			projectileNumber++;
+			projectileText.text = "Projectile number: " + projectileNumber;	
+		}
+		else if (other.CompareTag("Finish"))
+		{
+			messageText.text = "You Win！！！";
+		}
+		
 	}
 
 	private void jump()
@@ -116,4 +137,22 @@ public class Player : MonoBehaviour
 		} while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
 		isJumping = false;
 	}
+
+	private void shoot()
+	{
+		if (projectileNumber > 0)
+		{
+			GameObject newProjectile = Instantiate(projectile, this.transform.position, this.transform.rotation);
+			//newProjectile.transform.localPosition = new Vector3(0f,0f,0f);
+			newProjectile.GetComponent<Rigidbody>().velocity = newProjectile.transform.forward*shootSpeed;
+			newProjectile.GetComponent<Projectile>().mazeGenerator = mazeGenerator;
+			projectileNumber--;
+			projectileText.text = "Projectile number: " + projectileNumber;
+		}
+		else
+		{
+			projectileText.text = "Projectile number: " + projectileNumber + " No projectile!!!";
+		}
+	}
+
 }

@@ -12,13 +12,16 @@ public class MazeGenerator : MonoBehaviour
 	public GameObject mazePlane;
 	public GameObject rightWall;
 	public GameObject bottomWall;
+	public GameObject pickUp;
+	public GameObject pickUps;
 	
+	private Vector3 initialPickUpPosition;
 	private GameObject currentMazePlane;
 	private int checker;
 	private Vector3 initialPosition;
 	private Vector3 initialRightWallPosition;
 	private Vector3 initialBottomWallPosition;
-
+	private bool isFinalRow;
 	private Cell[] currentRow = new Cell[8];
 	// Use this for initialization
 	void Start ()
@@ -27,12 +30,14 @@ public class MazeGenerator : MonoBehaviour
 		initialPosition = new Vector3(0f, 0f, 11f);
 		initialRightWallPosition = new Vector3(3.75f, 0.25f, 0f);
 		initialBottomWallPosition = new Vector3(4.375f, 0.25f, 5f);
+		initialPickUpPosition = new Vector3(-8.75f,0.5f,11f);
 		for (int i = 0; i < 8; i++)
 		{
 			currentRow[i] = new Cell();
 			currentRow[i].ID = 0;
 		}
 
+		isFinalRow = false;
 		generateRow();
 	}
 	
@@ -44,6 +49,10 @@ public class MazeGenerator : MonoBehaviour
 	public void generateRow()
 	{
 		GameObject newMazePlane = Instantiate(mazePlane, transform);
+		if (isFinalRow)
+		{
+			newMazePlane.transform.GetChild(0).gameObject.SetActive(false);
+		}
 		Vector3 position  = initialPosition;
 		//Debug.Log("Initial Position" +  position.x + " " + position.y + "  "+ position.z);
 		newMazePlane.transform.position = position;
@@ -52,8 +61,16 @@ public class MazeGenerator : MonoBehaviour
 		givesID();
 		givesRightWall();
 		givesBottomWall();
-		drawWalls();
-		setNewRow();
+		if (!isFinalRow)
+		{
+			drawWalls();
+			setNewRow();
+		}
+		else
+		{
+			setLastWall();
+			drawWalls();
+		}
 	}
 
 	private void givesID()
@@ -133,6 +150,16 @@ public class MazeGenerator : MonoBehaviour
 				//Debug.Log("newPosition.x after" + newPosition.x);
 				newRightWall.transform.localPosition = newPosition;
 			}
+
+			int random = UnityEngine.Random.Range(0, 10);
+			if (random == 4)
+			{
+				GameObject newPickUp = Instantiate(pickUp, pickUps.transform);
+				Vector3 newPosition = initialPickUpPosition;
+				newPickUp.transform.localPosition = newPosition;
+			}
+			
+			initialPickUpPosition.x = initialPickUpPosition.x + 2.5f;
 			initialRightWallPosition.x = initialRightWallPosition.x - 1.25f;
 			if (cell.hasBottomWall)
 			{
@@ -183,9 +210,37 @@ public class MazeGenerator : MonoBehaviour
 
 			currentRow[i].hasBottomWall = false;
 			currentRow[i].hasRightWall = false;
-			Debug.Log(currentRow[i].ID);
+			//Debug.Log(currentRow[i].ID);
 		}
 		initialRightWallPosition = new Vector3(3.75f, 0.25f, 0f);
 		initialBottomWallPosition = new Vector3(4.375f, 0.25f, 5f);
+		initialPickUpPosition.x = -8.75f;
+		initialPickUpPosition.z = initialPickUpPosition.z + 2.5f;
+	}
+
+	public void setFinalWall()
+	{
+		isFinalRow = true;
+		generateRow();
+	}
+
+	private void setLastWall()
+	{
+		for(int i = 0;i<8;i++)
+		{
+			currentRow[i].hasBottomWall = true;
+			if (i < 7)
+			{
+				if(currentRow[i].ID != currentRow[i+1].ID&&(currentRow[i].hasRightWall)){
+					currentRow[i].hasRightWall = false;
+					int idToChange = currentRow[i+1].ID;
+					for(int j = 0;j<8;j++) {
+						if(currentRow[j].ID ==idToChange) {
+							currentRow[j].ID = currentRow[i].ID;
+						}
+					}
+				}
+			}	
+		}
 	}
 }
