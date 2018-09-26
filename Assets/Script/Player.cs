@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 		camera = transform.GetChild(0).gameObject;
 		charController = gameObject.GetComponent<CharacterController>();
 		xAxisClamp = 0;
+		
 	}
 	
 	// Update is called once per frame
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
 		camera.transform.Rotate(Vector3.left*mouseY);
 		transform.Rotate(Vector3.up*mouseX);
 		
-		Debug.Log(mouseX + ", " + mouseY);
+		//Debug.Log(mouseX + ", " + mouseY);
 	}
 
 	private void CameraMovement()
