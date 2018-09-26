@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
+using UnityEngineInternal.Input;
 
 public class Player : MonoBehaviour
 {
 
-	public float speed;
-	public float mouseSensitivity;
-	public MazeGenerator mazeGenerator;
-
+	[SerializeField]private float speed;
+	[SerializeField]private float mouseSensitivity;
+	[SerializeField]private MazeGenerator mazeGenerator;
+	[SerializeField]private AnimationCurve jumpFallOff;
+	[SerializeField]private float jumpMultiplier;
+	
 	private GameObject camera;
 	private float xAxisClamp;
-
+	private bool isJumping;
+	
 	private CharacterController charController;
 	// Use this for initialization
 	void Start ()
@@ -19,7 +24,8 @@ public class Player : MonoBehaviour
 		camera = transform.GetChild(0).gameObject;
 		charController = gameObject.GetComponent<CharacterController>();
 		xAxisClamp = 0;
-		
+		isJumping = false;
+
 	}
 	
 	// Update is called once per frame
@@ -27,6 +33,10 @@ public class Player : MonoBehaviour
 	{
 		CameraMovement();
 		CameraRotation();
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			jump();
+		}
 	}
 
 	private void CameraRotation()
@@ -81,5 +91,29 @@ public class Player : MonoBehaviour
 			mazeGenerator.generateRow();
 			other.gameObject.SetActive(false);
 		}
+	}
+
+	private void jump()
+	{
+		if (!isJumping)
+		{
+			isJumping = true;
+			StartCoroutine(jumpEvent());
+		}
+		
+	}
+
+	private IEnumerator jumpEvent()
+	{
+
+		float timeInAir = 0.0f;
+		do
+		{
+			float jumpForce = jumpFallOff.Evaluate(timeInAir);
+			charController.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
+			timeInAir += Time.deltaTime;
+			yield return null;
+		} while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
+		isJumping = false;
 	}
 }
