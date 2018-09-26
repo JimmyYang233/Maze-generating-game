@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
 		if (other.CompareTag("FinalWallTrigger"))
 		{
 			
-			other.transform.parent.gameObject.SetActive(false);
+			other.gameObject.SetActive(false);
 			mazeGenerator.setFinalWall();
 			Destroy(this.gameObject);
 		}
