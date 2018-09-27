@@ -326,7 +326,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpMultiplier: 50
+  jumpMultiplier: 100
   projectile: {fileID: 1905094978386110, guid: 76e51660d40f65342ab00ab210e56373, type: 2}
   projectileText: {fileID: 216022036}
   messageText: {fileID: 1351147517}

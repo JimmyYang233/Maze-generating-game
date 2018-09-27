@@ -131,6 +131,7 @@ public class Player : MonoBehaviour
 		do
 		{
 			float jumpForce = jumpFallOff.Evaluate(timeInAir);
+			charController.SimpleMove(new Vector3(0, 0, 0));
 			charController.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
 			timeInAir += Time.deltaTime;
 			yield return null;
