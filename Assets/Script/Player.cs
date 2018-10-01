@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 	private GameObject camera;
 	private float xAxisClamp;
 	private bool isJumping;
+	private bool isWin;
 	private CharacterController charController;
 	// Use this for initialization
 	void Start ()
@@ -30,22 +31,26 @@ public class Player : MonoBehaviour
 		charController = gameObject.GetComponent<CharacterController>();
 		xAxisClamp = 0;
 		isJumping = false;
+		isWin = false;
 		projectileText.text = "Projectile number: " + projectileNumber;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		CameraMovement();
-		CameraRotation();
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (!isWin)
 		{
-			jump();
-		}
+			CameraMovement();
+			CameraRotation();
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				jump();
+			}
 
-		if (Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			shoot();
+			if (Input.GetKeyDown(KeyCode.F)&&!isJumping)
+			{
+				shoot();
+			}
 		}
 	}
 
@@ -110,6 +115,7 @@ public class Player : MonoBehaviour
 		else if (other.CompareTag("Finish"))
 		{
 			messageText.text = "You Win！！！";
+			isWin = true;
 		}
 		
 	}

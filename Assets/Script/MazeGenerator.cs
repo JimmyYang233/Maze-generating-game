@@ -12,8 +12,10 @@ public class MazeGenerator : MonoBehaviour
 	public GameObject mazePlane;
 	public GameObject rightWall;
 	public GameObject bottomWall;
+	public GameObject lastWall;
 	public GameObject pickUp;
 	public GameObject pickUps;
+	public int pickUpShowRate;
 	
 	private Vector3 initialPickUpPosition;
 	private GameObject currentMazePlane;
@@ -152,7 +154,7 @@ public class MazeGenerator : MonoBehaviour
 			}
 
 			int random = UnityEngine.Random.Range(0, 10);
-			if (random == 4)
+			if (random <= pickUpShowRate)
 			{
 				GameObject newPickUp = Instantiate(pickUp, pickUps.transform);
 				Vector3 newPosition = initialPickUpPosition;
@@ -172,7 +174,13 @@ public class MazeGenerator : MonoBehaviour
 
 			initialBottomWallPosition.x = initialBottomWallPosition.x - 1.25f;
 		}
-		
+
+		if (isFinalRow)
+		{
+			GameObject newLastWall = Instantiate(lastWall, currentMazePlane.transform);
+			newLastWall.transform.localPosition = new Vector3(0f, 0.25f, 5f);
+
+		}
 		
 	}
 
@@ -228,7 +236,7 @@ public class MazeGenerator : MonoBehaviour
 	{
 		for(int i = 0;i<8;i++)
 		{
-			currentRow[i].hasBottomWall = true;
+			currentRow[i].hasBottomWall = false;
 			if (i < 7)
 			{
 				if(currentRow[i].ID != currentRow[i+1].ID&&(currentRow[i].hasRightWall)){
