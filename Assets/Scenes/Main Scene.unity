@@ -622,7 +622,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 8d0b4475c38df4240b5c2aba4d0f9182, type: 2}
+  - {fileID: 2100000, guid: e66d282c1a589b740978ed3a03245fb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1599,7 +1599,7 @@ GameObject:
   - component: {fileID: 1767498596}
   - component: {fileID: 1767498600}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: WinCube
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,7 +1632,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 8df305defc72c4f48a52157fa6d85fba, type: 2}
+  - {fileID: 2100000, guid: a27a391ef2f187340b324db38109c097, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

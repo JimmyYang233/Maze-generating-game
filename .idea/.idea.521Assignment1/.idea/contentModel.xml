@@ -6,26 +6,8 @@
       <e p="521Assignment1.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="HighQualityBricks&amp;Walls" t="Include">
-          <e p="readme.txt" t="Include" />
-          <e p="Shaders" t="Include">
-            <e p="brick-807728.shader" t="Include" />
-            <e p="brick-957823.shader" t="Include" />
-            <e p="brick-957827.shader" t="Include" />
-            <e p="bricks-868344.shader" t="Include" />
-            <e p="patch-924648.shader" t="Include" />
-            <e p="shading-671263.shader" t="Include" />
-            <e p="stone-805287.shader" t="Include" />
-            <e p="texture-709723.shader" t="Include" />
-            <e p="tile-846018.shader" t="Include" />
-            <e p="wall-617961.shader" t="Include" />
-            <e p="wall-846013.shader" t="Include" />
-            <e p="wall-846015.shader" t="Include" />
-            <e p="wood-731407.shader" t="Include" />
-            <e p="wood-877000.shader" t="Include" />
-            <e p="wood-877365.shader" t="Include" />
-            <e p="wood-938698.shader" t="Include" />
-          </e>
+        <e p="Material" t="Include">
+          <e p="brick-957823.shader" t="Include" />
         </e>
         <e p="Script" t="Include">
           <e p="Cell.cs" t="Include" />

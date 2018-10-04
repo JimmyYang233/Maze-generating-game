@@ -99,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Script/MazeGenerator.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="155" column="29" lean-forward="true" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
+              <caret line="155" column="29" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
               <folding>
                 <marker date="1538418873558" expanded="false" signature="6:184" ph="..." />
                 <marker date="1538418873558" expanded="true" signature="228:5838" ph="{...}" />
@@ -257,12 +257,12 @@
       <workItem from="1537919713278" duration="8710000" />
       <workItem from="1537974547209" duration="16099000" />
       <workItem from="1538412996365" duration="118000" />
-      <workItem from="1538413148310" duration="4413000" />
+      <workItem from="1538413148310" duration="5051000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32682000" />
+    <option name="totallyTimeSpent" value="33320000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,7 +274,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -498,7 +498,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Script/MazeGenerator.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="155" column="29" lean-forward="true" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
+          <caret line="155" column="29" selection-start-line="155" selection-start-column="29" selection-end-line="155" selection-end-column="29" />
           <folding>
             <marker date="1538418873558" expanded="false" signature="6:184" ph="..." />
             <marker date="1538418873558" expanded="true" signature="228:5838" ph="{...}" />
