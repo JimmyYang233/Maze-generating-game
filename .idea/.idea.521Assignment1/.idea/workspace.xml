@@ -62,7 +62,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Script/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-744">
@@ -91,6 +91,15 @@
                 <marker date="1538418639785" expanded="true" signature="3438:3944" ph="{...}" />
                 <marker date="1538418639785" expanded="true" signature="3951:4048" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -186,6 +195,7 @@
         <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MazeGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Cell.cs" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -198,7 +208,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="373" />
     <option name="y" value="106" />
     <option name="width" value="1026" />
@@ -268,12 +278,12 @@
       <workItem from="1537974547209" duration="16099000" />
       <workItem from="1538412996365" duration="118000" />
       <workItem from="1538413148310" duration="5051000" />
-      <workItem from="1539745352590" duration="33000" />
+      <workItem from="1539745352590" duration="713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33353000" />
+    <option name="totallyTimeSpent" value="34033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -296,7 +306,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unity" order="13" />
       <window_info anchor="right" id="Database" order="4" />
@@ -636,6 +646,13 @@
             <marker date="1538418639785" expanded="true" signature="3438:3944" ph="{...}" />
             <marker date="1538418639785" expanded="true" signature="3951:4048" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
